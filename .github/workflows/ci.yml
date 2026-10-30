@@ -1,4 +1,3 @@
-mkdir -p .github/workflows
 name: CI
 
 on:
@@ -18,11 +17,6 @@ jobs:
           cache: maven
       - run: mvn -B verify
         working-directory: backend
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: jacoco-report
-          path: backend/target/site/jacoco
 
   frontend:
     runs-on: ubuntu-latest
